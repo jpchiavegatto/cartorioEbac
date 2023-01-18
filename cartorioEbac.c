@@ -118,49 +118,66 @@ int main()
 {
   	int opcao=0; //Definindo variáveis
   	int laco=1; //Definindo variável do laço
+  	char senhadigitada[10]="a";
+  	int retorno;
   	
-  	for(laco=1;laco=1;) //Definindo entrada / saída / incremento
-  	{
+  	setlocale(LC_ALL,"Portuguese"); //Definindo linguagem (caractéres)
+	printf("### Cartório da EBAC ###\n\n");
+  	printf("Login de administrador! \n\n");
+	printf("Digite sua senha: ");
+	scanf("%s", &senhadigitada);
 	
-        system("cls"); 	  
-    	setlocale(LC_ALL,"Portuguese"); //Definindo linguagem (caractéres)
+	retorno = strcmp(senhadigitada, "admin");
 	
-    	printf("### Cartório da EBAC ###\n\n"); //início do Menu
-    	printf("Escolha a opção desejada do menu:\n\n"); //Orientação usuário
-    	printf("\t1. - Registrar nomes\n"); //Opções
-    	printf("\t2. - Consultar nomes\n");
-    	printf("\t3. - Deletar registro\n\n");
-    	printf("\t4. - Sair do programa \n\n");
-    	printf("Opção: "); //fim do Menu
+	if(retorno == 0) 
+	{
+
+  		for(laco=1;laco=1;) //Definindo entrada / saída / incremento
+  		{
+		
+			system("cls"); 	  
+    		setlocale(LC_ALL,"Portuguese"); //Definindo linguagem (caractéres)
 	
-    	scanf("%d", &opcao); //Armazenando a escolha do usuãrio
+    		printf("### Cartório da EBAC ###\n\n"); //início do Menu
+    		printf("Escolha a opção desejada do menu:\n\n"); //Orientação usuário
+    		printf("\t1. - Registrar nomes\n"); //Opções
+    		printf("\t2. - Consultar nomes\n");
+    		printf("\t3. - Deletar registro\n\n");
+    		printf("\t4. - Sair do programa \n\n");
+    		printf("Opção: "); //fim do Menu
 	
-    	system("cls"); //Limpar tela
+    		scanf("%d", &opcao); //Armazenando a escolha do usuãrio
 	
-    	switch(opcao)
-    	{
-    		case 1:
-			registrar ();
-    		break;
+    		system("cls"); //Limpar tela
+	
+    		switch(opcao)
+    		{
+    			case 1:
+				registrar ();
+    			break;
+    			
+    			case 2:
+				consultar ();
+    			break;
     		
-    		case 2:
-			consultar ();
-    		break;
+   				case 3:
+   				deletar ();
+	    		break;
     		
-    		case 3:
-    		deletar ();
-    		break;
+	    		case 4:
+	    		printf("Obrigado por usar o Cartório da EBAC! \n");
+    			return 0;
+    			break;
     		
-    		case 4:
-    		printf("Obrigado por usar o Cartório da EBAC! \n");
-    		return 0;
-    		break;
-    		
-    		default:
-    		printf("### Essa opção não está disponível ### \n\n");
-    		system("pause");
-    		break;
-    	} //fim da seleção
+    			default:
+    			printf("### Essa opção não está disponível ### \n\n");
+    			system("pause");
+    			break;
+    		} //fim da seleção
+		} //fechamento do laço
+	}//fechamento do If
 	
-	} //fechamento do laço
+	else
+		system("cls");
+		printf("Senha incorreta!");
 } //FIM DA FUNÇÃO PRINCIPAL
